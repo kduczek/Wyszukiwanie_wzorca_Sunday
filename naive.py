@@ -1,9 +1,4 @@
-import matplotlib
-
-import utils
-
-matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
+counter = 0
 
 
 def matchesAt(T, W, p):
@@ -17,23 +12,17 @@ def matchesAt(T, W, p):
 
 def naiveSearch(T, W):
     result = []
+    resetCounter()
     for p in range(len(T) - len(W) + 1):
         if matchesAt(T, W, p):
             result.append(p)
     return result
 
-T = ""
-W = utils.rand_text("abc", 3)
 
-X = []
-Y = []
-for _ in range(10000):
-    T += utils.rand_text("abc", 1)
+def getCounter():
+    return counter
+
+
+def resetCounter():
+    global counter
     counter = 0
-    naiveSearch(T, W)
-    X.append(len(T))
-    Y.append(counter)
-
-plt.plot(X, Y)
-plt.show()
-

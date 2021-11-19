@@ -71,3 +71,31 @@ def draw_plot_various_pattern_lengths():
     plt.xlabel('Dlugosc wzorca')
     plt.ylabel('Ilosc porownan')
     plt.show()
+
+
+def draw_plot_various_alphabet_lengths():
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    Xs = []
+    Ys = []
+    Xn = []
+    Yn = []
+
+    for i in range(10, 26):
+        T = rand_text(alphabet[0: i], 10000)
+        W = rand_text(alphabet[0: i], 10)
+        counterS = sunday.sundaySearch(T, W)
+        Xs.append(i + 1)
+        Ys.append(counterS)
+
+        naive.naiveSearch(T, W)
+        counterN = naive.getCounter()
+        Xn.append(i + 1)
+        Yn.append(counterN)
+
+    plt.plot(Xs, Ys)
+    plt.plot(Xn, Yn)
+    plt.legend(['Sunday', 'Naiwny'], loc='center right')
+    plt.suptitle('Zmienna dlugosc alfabetu')
+    plt.xlabel('Dlugosc alfabetu')
+    plt.ylabel('Ilosc porownan')
+    plt.show()

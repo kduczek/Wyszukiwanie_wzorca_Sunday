@@ -25,12 +25,12 @@ def draw_plot_various_text_lengths():
 
     for _ in range(10000):
         T += rand_text(alphabet, 1)
-        counterS = sunday.sundaySearch(T, W)
+        counterS = sunday.sunday_search(T, W)
         Xs.append(len(T))
         Ys.append(counterS)
 
-        naive.naiveSearch(T, W)
-        counterN = naive.getCounter()
+        naive.naive_search(T, W)
+        counterN = naive.get_counter()
         Xn.append(len(T))
         Yn.append(counterN)
 
@@ -55,12 +55,12 @@ def draw_plot_various_pattern_lengths():
 
     for _ in range(40):
         W += rand_text(alphabet, 1)
-        counterS = sunday.sundaySearch(T, W)
+        counterS = sunday.sunday_search(T, W)
         Xs.append(len(W))
         Ys.append(counterS)
 
-        naive.naiveSearch(T, W)
-        counterN = naive.getCounter()
+        naive.naive_search(T, W)
+        counterN = naive.get_counter()
         Xn.append(len(W))
         Yn.append(counterN)
 
@@ -83,12 +83,12 @@ def draw_plot_various_alphabet_lengths():
     for i in range(10, 26):
         T = rand_text(alphabet[0: i], 10000)
         W = rand_text(alphabet[0: i], 10)
-        counterS = sunday.sundaySearch(T, W)
+        counterS = sunday.sunday_search(T, W)
         Xs.append(i + 1)
         Ys.append(counterS)
 
-        naive.naiveSearch(T, W)
-        counterN = naive.getCounter()
+        naive.naive_search(T, W)
+        counterN = naive.get_counter()
         Xn.append(i + 1)
         Yn.append(counterN)
 

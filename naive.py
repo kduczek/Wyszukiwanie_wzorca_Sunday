@@ -1,7 +1,7 @@
 counter = 0
 
 
-def matchesAt(T, W, p):
+def matches_at(T, W, p):
     global counter
     for i in range(len(W)):
         counter += 1
@@ -10,19 +10,19 @@ def matchesAt(T, W, p):
     return True
 
 
-def naiveSearch(T, W):
+def naive_search(T, W):
     result = []
-    resetCounter()
+    reset_counter()
     for p in range(len(T) - len(W) + 1):
-        if matchesAt(T, W, p):
+        if matches_at(T, W, p):
             result.append(p)
     return result
 
 
-def getCounter():
+def get_counter():
     return counter
 
 
-def resetCounter():
+def reset_counter():
     global counter
     counter = 0

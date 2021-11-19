@@ -1,4 +1,4 @@
-def moveSearchingWindow(T, W, pos):
+def move_searching_window(T, W, pos):
     shift = 0
     for i in reversed(W):
         shift += 1
@@ -7,7 +7,7 @@ def moveSearchingWindow(T, W, pos):
     return 0
 
 
-def sundaySearch(T, W):
+def sunday_search(T, W):
     counter = 0
     result = []
     pos = 0
@@ -19,7 +19,7 @@ def sundaySearch(T, W):
                 pos += 1
             else:
                 if T[iterationIndex + len(W)] in W:
-                    pos += moveSearchingWindow(T, W, iterationIndex + len(W))
+                    pos += move_searching_window(T, W, iterationIndex + len(W))
                 else:
                     pos = iterationIndex + len(W) + 1
                 break

@@ -27,4 +27,3 @@ def sunday_search(T, W):
             result.append(iterationIndex)
 
     return counter
-

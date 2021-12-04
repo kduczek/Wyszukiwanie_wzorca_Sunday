@@ -80,20 +80,21 @@ def draw_plot_various_alphabet_lengths():
     Xn = []
     Yn = []
 
-    for i in range(10, 26):
+    for i in range(1, 20):
         T = rand_text(alphabet[0: i], 10000)
         W = rand_text(alphabet[0: i], 10)
         counterS = sunday.sunday_search(T, W)
-        Xs.append(i + 1)
+        Xs.append(i)
         Ys.append(counterS)
 
         naive.naive_search(T, W)
         counterN = naive.get_counter()
-        Xn.append(i + 1)
+        Xn.append(i)
         Yn.append(counterN)
 
     plt.plot(Xs, Ys)
     plt.plot(Xn, Yn)
+    plt.xticks(range(1, 20))
     plt.legend(['Sunday', 'Naiwny'], loc='center right')
     plt.suptitle('Zmienna dlugosc alfabetu')
     plt.xlabel('Dlugosc alfabetu')

@@ -1,13 +1,22 @@
-def move_searching_window(T, W, pos):
+def calculate_shift(W, pos):
     shift = 0
-    for i in reversed(W):
+    for character in reversed(W):
         shift += 1
-        if T[pos] == i:
+        if pos == character:
             return shift
-    return 0
+    return len(W) + 1
+
+
+def create_help_table(T, W):
+    unique_values = set(T)
+    help_table = {}
+    for character in unique_values:
+        help_table[character] = calculate_shift(W, character)
+    return help_table
 
 
 def sunday_search(T, W):
+    help_table = create_help_table(T, W)
     counter = 0
     result = []
     pos = 0
@@ -18,12 +27,10 @@ def sunday_search(T, W):
             if T[pos] == char:
                 pos += 1
             else:
-                if T[iterationIndex + len(W)] in W:
-                    pos += move_searching_window(T, W, iterationIndex + len(W))
-                else:
-                    pos = iterationIndex + len(W) + 1
+                pos += help_table[T[pos]]
                 break
         else:
             result.append(iterationIndex)
+            pos = iterationIndex + help_table[T[iterationIndex]]
 
     return counter
